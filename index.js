@@ -31,7 +31,7 @@ ParseRef.prototype.getReferenceObj = function () {
 
   this.referenceObj.start = {
     chapter: startRefArr[0],
-    verse: startRefArr[1] || 1
+    verse: startRefArr[1]
   };
 
   if (endRefArr) {
@@ -45,7 +45,7 @@ ParseRef.prototype.getReferenceObj = function () {
     } else {
       this.referenceObj.end = {
         chapter: endRefArr[0],
-        verse: endRefArr[1] || this.book.chapters[parseInt(endRefArr[0])  - 1]
+        verse: endRefArr[1]
       };
     }
   }
@@ -60,25 +60,25 @@ ParseRef.prototype.verseIsInRange = function (verse, chapter) {
 };
 
 ParseRef.prototype.checkRange = function () {
-  if (!this.chapterIsInRange(this.referenceObj.start.chapter) || !this.verseIsInRange(this.referenceObj.start.verse, this.referenceObj.start.chapter)) {
+  if (!this.chapterIsInRange(this.referenceObj.start.chapter) || (this.referenceObj.start.verse && !this.verseIsInRange(this.referenceObj.start.verse, this.referenceObj.start.chapter))) {
     return false;
   }
 
   if (this.referenceObj.end) {
-    if (!this.chapterIsInRange(this.referenceObj.end.chapter) || !this.verseIsInRange(this.referenceObj.end.verse, this.referenceObj.end.chapter)) {
-      return false
+    if (!this.chapterIsInRange(this.referenceObj.end.chapter) || (this.referenceObj.end.verse && !this.verseIsInRange(this.referenceObj.end.verse, this.referenceObj.end.chapter))) {
+      return false;
     }
   }
 
   return true;
 };
 
-ParseRef.prototype.parse = function (reference) {
+ParseRef.prototype.parse = function () {
   this.getBook();
 
   if (!this.book) {
     this.parsedObj.invalid = 'book name';
-    return parsedObj;
+    return this.parsedObj;
   }
 
   this.getReferenceObj();
@@ -95,10 +95,12 @@ ParseRef.prototype.parse = function (reference) {
     return this.parsedObj;
   }
 
-  this.parsedObj.osisStart = this.book.osisId + '.' + this.referenceObj.start.chapter + '.' + this.referenceObj.start.verse;
+  this.parsedObj.osisStart = this.book.osisId + '.' + this.referenceObj.start.chapter;
+  if (this.referenceObj.start.verse) this.parsedObj.osisStart +=  '.' + this.referenceObj.start.verse;
 
   if (this.parsedObj.isRange) {
-    this.parsedObj.osisEnd = this.book.osisId + '.' + this.referenceObj.end.chapter + '.' + this.referenceObj.end.verse;
+    this.parsedObj.osisEnd = this.book.osisId + '.' + this.referenceObj.end.chapter;
+    if (this.referenceObj.end.verse) this.parsedObj.osisEnd += '.' + this.referenceObj.end.verse;
   } else {
     this.parsedObj.osis = this.parsedObj.osisStart;
     delete this.parsedObj.osisStart;

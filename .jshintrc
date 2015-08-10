@@ -2,7 +2,7 @@
   "node"        :true,
   "bitwise"     :true,
   "camelcase"   :false,
-  "curly"       :true,
+  "curly"       :false,
   "eqeqeq"      :true,
   "forin"       :true,
   "immed"       :true,
