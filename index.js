@@ -1,14 +1,14 @@
 var _ = require('underscore'),
     books = require('./data/books.json');
 
-var ParseRef = function (reference) {
+var ValidateRef = function (reference) {
   this.reference = reference;
   this.referenceObj = {};
   this.parsedObj = {};
   return this.parse(this.reference);
 };
 
-ParseRef.prototype.getBook = function () {
+ValidateRef.prototype.getBook = function () {
   var self = this;
 
   this.book = _.find(books, function (book) {
@@ -19,7 +19,7 @@ ParseRef.prototype.getBook = function () {
   });
 };
 
-ParseRef.prototype.getReferenceObj = function () {
+ValidateRef.prototype.getReferenceObj = function () {
   var reference = this.reference.replace(this.bookMatch, '').replace(/\s/g, '').split('-');
 
   var startRefArr = reference[0].split(':'),
@@ -51,15 +51,15 @@ ParseRef.prototype.getReferenceObj = function () {
   }
 };
 
-ParseRef.prototype.chapterIsInRange = function (chapter) {
+ValidateRef.prototype.chapterIsInRange = function (chapter) {
   return parseInt(chapter) <= this.book.chapters.length;
 };
 
-ParseRef.prototype.verseIsInRange = function (verse, chapter) {
+ValidateRef.prototype.verseIsInRange = function (verse, chapter) {
   return parseInt(verse) <= this.book.chapters[chapter - 1];
 };
 
-ParseRef.prototype.checkRange = function () {
+ValidateRef.prototype.checkRange = function () {
   if (!this.chapterIsInRange(this.referenceObj.start.chapter) || (this.referenceObj.start.verse && !this.verseIsInRange(this.referenceObj.start.verse, this.referenceObj.start.chapter))) {
     return false;
   }
@@ -73,7 +73,7 @@ ParseRef.prototype.checkRange = function () {
   return true;
 };
 
-ParseRef.prototype.parse = function () {
+ValidateRef.prototype.parse = function () {
   this.getBook();
 
   if (!this.book) {
@@ -109,4 +109,4 @@ ParseRef.prototype.parse = function () {
   return this.parsedObj;
 };
 
-module.exports = ParseRef;
+module.exports = ValidateRef;
