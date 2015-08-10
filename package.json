@@ -1,0 +1,27 @@
+{
+  "name": "bible-reference-validator",
+  "version": "1.0.0",
+  "description": "Validates given Bible references and returns OSIS reference",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/freedomcity/bible-reference-validator.git"
+  },
+  "keywords": [
+    "bible",
+    "scripture",
+    "validator"
+  ],
+  "author": "Jimmy King <hello@jimmyking.me> (http://jimmyking.me)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/freedomcity/bible-reference-validator/issues"
+  },
+  "homepage": "https://github.com/freedomcity/bible-reference-validator#readme",
+  "dependencies": {
+    "underscore": "^1.8.3"
+  }
+}
