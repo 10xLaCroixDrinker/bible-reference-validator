@@ -13,7 +13,9 @@
   "keywords": [
     "bible",
     "scripture",
-    "validator"
+    "validator",
+    "reference",
+    "osis"
   ],
   "author": "Jimmy King <hello@jimmyking.me> (http://jimmyking.me)",
   "license": "MIT",
