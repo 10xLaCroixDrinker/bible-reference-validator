@@ -1,6 +1,6 @@
 {
   "name": "bible-reference-validator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Validates given Bible references and returns OSIS reference",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,9 @@
   "keywords": [
     "bible",
     "scripture",
-    "validator"
+    "validator",
+    "reference",
+    "osis"
   ],
   "author": "Jimmy King <hello@jimmyking.me> (http://jimmyking.me)",
   "license": "MIT",

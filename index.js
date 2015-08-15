@@ -9,6 +9,7 @@ var ValidateRef = function (reference) {
   this.reference = reference;
   this.referenceObj = {};
   this.parsedObj = {};
+
   return this.parse(this.reference);
 };
 
@@ -100,6 +101,7 @@ ValidateRef.prototype.parse = function () {
   }
 
   this.parsedObj.osisStart = this.book.osisId + '.' + this.referenceObj.start.chapter;
+
   if (this.referenceObj.start.verse) this.parsedObj.osisStart +=  '.' + this.referenceObj.start.verse;
 
   if (this.parsedObj.isRange) {

@@ -21,4 +21,7 @@ var myRefRange = validateRef('1 Corinthians 13:4-7');
 
 var myRefInvalid = validateRef('Hezekiah 6:2');
 // { invalid: 'book name' }
+
+var myRefOutOfRange = validateRef('James 100:10');
+// { invalid: 'out of range' }
 ```
