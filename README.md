@@ -11,14 +11,14 @@ npm install --save bible-reference-validator
 ## Usage
 
 ```javascript
-var ValidateRef = require('bible-reference-validator');
+var validateRef = require('bible-reference-validator');
 
-var myRef = new ValidateRef('John 3:16');
+var myRef = validateRef('John 3:16');
 // { osis: 'John.3.16' }
 
-var myRefRange = new ValidateRef('1 Corinthians 13:4-7');
+var myRefRange = validateRef('1 Corinthians 13:4-7');
 // { isRange: true, osisStart: '1Cor.13.4', osisEnd: '1Cor.13.7' }
 
-var myRefInvalid = new ValidateRef('Hezekiah 6:2');
+var myRefInvalid = validateRef('Hezekiah 6:2');
 // { invalid: 'book name' }
 ```

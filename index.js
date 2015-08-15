@@ -2,6 +2,10 @@ var _ = require('underscore'),
     books = require('./data/books.json');
 
 var ValidateRef = function (reference) {
+  if (!(this instanceof ValidateRef)) {
+    return new ValidateRef(reference);
+  }
+
   this.reference = reference;
   this.referenceObj = {};
   this.parsedObj = {};
