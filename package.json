@@ -1,6 +1,6 @@
 {
   "name": "bible-reference-validator",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Validates given Bible references and returns OSIS reference",
   "main": "index.js",
   "scripts": {
