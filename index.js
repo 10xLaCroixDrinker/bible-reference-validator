@@ -17,7 +17,7 @@ ValidateRef.prototype.getBook = function () {
   var self = this;
 
   this.book = _.find(books, function (book) {
-    var re = new RegExp('\\b(' + book.name + '|' + book.abbr.join('|') + ')\\b', 'ig'),
+    var re = new RegExp('\^(' + book.name + '|' + book.abbr.join('|') + ')\\b', 'ig'),
         match = self.reference.match(re);
     if (match) self.bookMatch = match[0];
     return match;
