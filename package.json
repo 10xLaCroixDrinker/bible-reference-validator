@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/freedomcity/bible-reference-validator.git"
+    "url": "git+https://github.com/10xLaCroixDrinker/bible-reference-validator.git"
   },
   "keywords": [
     "bible",
@@ -17,9 +17,9 @@
   "author": "Jamie King <hello@jamieking.me> (http://jamieking.me)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/freedomcity/bible-reference-validator/issues"
+    "url": "https://github.com/10xLaCroixDrinker/bible-reference-validator/issues"
   },
-  "homepage": "https://github.com/freedomcity/bible-reference-validator#readme",
+  "homepage": "https://github.com/10xLaCroixDrinker/bible-reference-validator#readme",
   "dependencies": {
     "underscore": "^1.8.3"
   }
